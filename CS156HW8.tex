@@ -1,0 +1,73 @@
+\documentclass[12 pt]{article}
+\usepackage{fancyhdr}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumerate}
+% \usepackage{indentfirst}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage[version=3]{mhchem}
+\fancyhf{}
+\usepackage{sectsty}	
+\lhead{Andrew Wang}
+\chead{CS/CNS/EE 156a Learning Systems}
+\rhead{Abu-Mostafa}
+\sectionfont{\fontsize{15}{18}\selectfont}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{float}
+
+
+\begin{document}
+	\begin{center}
+		\section*{Homework 8}
+	\end{center}
+	
+	
+	\subsection*{Problem 1}	
+	\textbf{d} is the correct answer. \\
+	\textbf{w} has d number of variables and then we can also vary the constant b, so thus we have d + 1 variables, or choice d. 
+	
+	\subsection*{Problem 2}
+	\textbf{a} is the correct answer. \\
+	See attached code. After running the code, I got that the highest E$_{\text{in}}$ came from 0 versus all which had an E$_{\text{in}}$ = 0.16376354409546015.
+	
+	\subsection*{Problem 3}
+	\textbf{a} is the correct answer.\\
+	See attached code. After running the code, I got that the lowest E$_{\text{in}}$ came from 1 versus all which had an E$_{\text{in}}$ = 0.015772870662460567
+	
+	\subsection*{Problem 4}
+	\textbf{c} is the correct answer.\\
+	See attached code. After running the code, I got 2390 - 536 = 1854 support vectors, closest to answer choice c.
+
+	\subsection*{Problem 5}
+	\textbf{d} is the correct answer.\\
+	See attached code. After running the code, I got that when C = 1, the lowest E$_{\text{in}}$ of 0.004484304932735426.
+	
+		
+	\subsection*{Problem 6}
+	\textbf{b} is the correct answer. \\
+	See attached code. I ran the svm1.versus() method with degree = 2 and degree = 5 and C = 0.001. I found that the number of support vectors for Q = 2 is 152 while the number of support vectors for Q = 5 is 28, giving answer  choice b.
+		
+	\subsection*{Problem 7}
+	\textbf{b} is the correct answer. \\
+	See attached code. For each run, I returned the C value that minimized E$_{CV}$ and added it to a list. The mode of this list was 0.001, answer choice b.
+		
+	
+	\subsection*{Problem 8}
+	\textbf{c} is the correct answer. \\
+	See attached code. For each run, in addition to the C value, I would also return E$_{CV}$ and found that the average of these errors is 0.004522292993630573, closest to answer choice c.
+	
+	\subsection*{Problem 9}
+	\textbf{e} is the correct answer. \\
+	See attached code. The lowest E$_{\text{in}}$ of the possible options came from C = 10$^6$. The value of the error is 0.0012812299807815502.
+	
+	\subsection*{Problem 10}
+	\textbf{c} is the correct answer. \\
+	See attached code. Repeating the process in problem 9, but using the testing set for prediction, we found that the lowest E$_{\text{out}}$ comes when C = 100. E$_{\text{out}}$ = 0.018867924528301886.
+
+	
+\end{document}

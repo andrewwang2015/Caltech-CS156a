@@ -1,0 +1,83 @@
+\documentclass[12 pt]{article}
+\usepackage{fancyhdr}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumerate}
+% \usepackage{indentfirst}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage[version=3]{mhchem}
+\fancyhf{}
+\usepackage{sectsty}	
+\lhead{Andrew Wang}
+\chead{CS/CNS/EE 156a Learning Systems}
+\rhead{Abu-Mostafa}
+\sectionfont{\fontsize{15}{18}\selectfont}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{float}
+
+
+\begin{document}
+	\begin{center}
+		\section*{Homework 3}
+	\end{center}
+	
+	
+	\subsection*{Problem 1}	
+	\textbf{b} is the correct answer. \\
+	This problem can be solved with simple algebra. We set the right hand side of the inequality equal to 0.03, plug in 0.05 for $\epsilon$ and 1 for M and solve for N. We get N equal to 839.94 and of the answer choices, the value that is immediately larger than this value is 1000, or choice b.
+	
+	\subsection*{Problem 2}
+	\textbf{c} is the correct answer. \\
+	We conduct the same procedure as problem 1 except we plug in 10 for M. We solve for N and get 1300.46. The closest answer immediately larger is 1500, or choice c.
+
+	
+	\subsection*{Problem 3}
+	\textbf{d} is the correct answer.\\
+	Now, we change M to 100 and solve for N. We get N to equal 1760.98. The closest answer immediately larger is 2000, or choice d.
+	
+	
+	\subsection*{Problem 4}
+	\textbf{b} is the correct answer.\\
+	In the case of $R^2$, we found that 4 points cannot be shattered by a line if they are in a formation such as: \\
+	
+	X   	 O \\
+	\indent O  	  X \\ 
+	
+	\noindent However, when we take the Perceptron model to $R^3$, we can create a plane that can shatter 4 points because we can separate the points for above/below the plane. However, if we have one additional points to put the total number of points to 5 and such a point is on the "wrong" side of the plane, meaning it should be below, but it is placed above or it is above, and should be placed below, then the plane model cannot shatter this set of 5 points. Thus, the breaking point is 5.
+
+
+	\subsection*{Problem 5}
+	\textbf{b} is the correct answer.\\
+	If there isn't a breakpoint, then the growth function is 2$^N$, so choice (v) is valid. If there is a breakpoint, then the growth function must be polynomial. We have seen choices (i) and (ii) before as they are the growth functions of the positive ray and positive intervals, respectively. Choices (iii) and (iv) are not polynomial as choice (iii) is the summation that is not dependent on the breakpoint and choice (iv) is exponential but not 2$^N$.
+
+		
+	\subsection*{Problem 6}
+	\textbf{c} is the correct answer. \\
+	When the number of points is 3 or 4, it can be easily seen that this "2-intervals" learning model will be able to shatter it. The most "complex" example when the number of points (n) is equal to 4 is when we have alternating positive and negatives (-1, +1, -1, +1 or vice versa). We see that because we have two intervals, we can have one interval per +1 and we are fine. Because this model shatters when n = 4, it shatters when n = 3. However, when n = 5, if we have +1, -1, +1, -1, +1 we no longer have enough intervals for each of the three +1s, and thus it fails. The -1s in between the +1s prevent any grouping, so the smallest breakpoint is n = 5.
+		
+	\subsection*{Problem 7}
+	\textbf{e} is the correct answer. \\
+	The correct answer should be $\binom{N+1}{4}$ + $\binom{N+1}{3}$ + $\binom{N+1}{2}$ + 1. We can think of each interval as determined by two "markers". $\binom{N+1}{4}$ takes care of the case when the intervals are distinct. $\binom{N+1}{3}$ takes care of the case when one "marker" is shared (the two intervals are adjacent to one another). $\binom{N+1}{2}$ takes care of the case when there is just one interval (markers are on top of one another). The last term of 1 takes care of the case when there are no intervals. 
+		
+	
+	\subsection*{Problem 8}
+	\textbf{d} is the correct answer. \\
+	Whenever we have an alternating sequence with the sequence starting and ending in +1, M intervals is not sufficient to group the +1s individually. For example, (+1, -1, +1) is a breakpoint sequence for M = 1, (+1, -1, +1, -1, +1) is a breakpoint sequence for M = 2, (+1, -1, +1, -1, +1, -1, +1) is a breakpoint sequence for M = 3 and so on. In such sequences of length 2M+1, we have M+1 -1s but only M intervals which is insufficient.
+	
+	
+	\subsection*{Problem 9}
+	\textbf{d} is the correct answer. \\
+	Looking at the edx forum, and using advice to put points on a circle and seeing if triangles can be made, I found that when n = 7, and we have alternating -1s and +1s around the circle, we are always able to draw a triangle around the +1s because either there were three +1s in which case a triangle can easily be drawn or there were four +1s but two of the four +1s are adjacent meaning a triangle can still be drawn. Thus, 7 points can be shattered. However, when there are 9 points, we have the case where we need to group four +1 points together with -1s between them. With limitations of three edges for a triangle, this cannot be done. 
+
+	
+	\subsection*{Problem 10}
+	\textbf{b} is the correct answer. \\
+	x$_1^2$ + x$_2^2$ is always positive and it's being bounded by a$^2$ and b$^2$ which are two positives. This is very similar to the one interval problem where we want points to fall in between two intervals much like the inequality of $H$. Thus, we just use the growth function of the one interval which is $\binom{N+1}{2}$ + 1.
+
+	
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass[12 pt]{article}
+\usepackage{fancyhdr}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumerate}
+% \usepackage{indentfirst}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage[version=3]{mhchem}
+\fancyhf{}
+\usepackage{sectsty}	
+\lhead{Andrew Wang}
+\chead{CS/CNS/EE 156a Learning Systems}
+\rhead{Abu-Mostafa}
+\sectionfont{\fontsize{15}{18}\selectfont}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{float}
+
+
+\begin{document}
+	\begin{center}
+		\section*{Homework 5}
+	\end{center}
+	
+	
+	\subsection*{Problem 1}	
+	\textbf{c} is the correct answer. \\
+	Plugging in 0.008 for expected E$_{in}$, 8 for d, and 0.1 for $\sigma$, we get that N = 35. Thus, the smallest N that will result in an expected E$_{in}$ greater than 0.008 is answer choice c.
+
+
+	
+	\subsection*{Problem 2}
+	\textbf{d} is the correct answer. \\
+	The output is the sign(w$_0$ + w$_1$ $x_1^2$ + w$_2$ $x_2^2$ ). When w$_1$ $<$ 0 and w$_2$ $>$ 0, we get positive for large values of x$_2$ and negative for large values of x$_1$ which is precisely what the hyperbolic decision boundary is displaying, assuming w$_0$ can be adjusted accordingly.
+
+	
+	\subsection*{Problem 3}
+	\textbf{c} is the correct answer.\\
+	We have that d$_{vc}$ $\leq$ d + 1 where d+1 is the number of parameters. The number of parameters in this case is 14 so d$_{vc}$ $\leq$ 15. 
+	
+	\subsection*{Problem 4}
+	\textbf{e} is the correct answer.\\
+	Using simple multi variable calculus, we an take the partial derivative using chain rule to get answer choice e.
+
+
+	\subsection*{Problem 5}
+	\textbf{d} is the correct answer.\\
+	See attached code. I kept track of the number of iterations before the error got less than 10$^{-14}$ by updating the weight vector by the gradient of E(u,v) multiplied by the learning rate of 0.1. The answer came out to be 10.
+
+		
+	\subsection*{Problem 6}
+	\textbf{e} is the correct answer. \\
+	See attached code. The final value for my weights were (0.0447, 0.0239), closest to answer choice e.
+
+		
+	\subsection*{Problem 7}
+	\textbf{a} is the correct answer. \\
+	See attached code. I did as the prompt told, updating the weight vector by coordinate, one after the other. I did this 15 times (30 steps) and got 0.139 as my error after, closest to answer choice a.
+
+		
+	
+	\subsection*{Problem 8}
+	\textbf{d} is the correct answer. \\
+	See attached code. Using the formula for "cross-entropy" error on slide 16 of lecture 9, I was able to get an average E$_{out}$ of 0.097, closest to 0.1, or answer choice d.
+	
+
+	
+	\subsection*{Problem 9}
+	\textbf{a} is the correct answer. \\
+	See attached code. To calculate the number of epochs, I incremented the epoch number by 1 after the weight vector was changed stochastically (point to point) for all N points. To determine if I would need another epoch, I test to see the difference between the original and modified weight vectors. If the difference $\geq$ 0.01, then there will be another epoch. If the difference is $<$ 0.01, we are done. The average epoch over the 100 runs turned out to be 332.6, closest to answer choice a.
+	
+	\subsection*{Problem 10}
+	\textbf{e} is the correct answer. \\
+	Recall that for a PLA, to update the weight vector, we add $y$\textbf{x} if \textbf{x} is a misclassified point. For a SGD, we add -n$\nabla$E$_{in}$. To simulate a PLA, we want the gradient of e$_n$(\textbf{w}) to be 0 when the point is classified correctly, and -y\textbf{w}$^\textbf{T}$\textbf{x} when classified incorrectly. Choice e provides this. 
+
+	
+\end{document}

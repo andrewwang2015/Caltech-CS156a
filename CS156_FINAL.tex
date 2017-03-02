@@ -1,0 +1,114 @@
+\documentclass[12 pt]{article}
+\usepackage{fancyhdr}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumerate}
+% \usepackage{indentfirst}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage[version=3]{mhchem}
+\fancyhf{}
+\usepackage{sectsty}	
+\lhead{Andrew Wang}
+\chead{CS/CNS/EE 156a Learning Systems}
+\rhead{Abu-Mostafa}
+\sectionfont{\fontsize{15}{18}\selectfont}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{float}
+\usepackage{microtype}
+
+
+\begin{document}
+	\begin{center}
+		\section*{FINAL EXAM}
+	\end{center}
+	
+	
+	\subsection*{Problem 1}	
+	\textbf{e} is the correct answer. \\
+	We can start by measuring the dimensionality and then showing that it surpasses 100, thus not being an answer choice. Let the coordinates in our original space be (x$_1$, x$_2$). In the $Z$ space, we will have 11 coordinates of form x$_1^n$ where n goes from 1 to 10 and likewise, 11 coordinates of form x$_2^n$ where n goes from 1 to 10. There will be 11 coordinates of form x$_1^n$x$_2^n$ where n goes from 1 to 10. There are 9 coordinates of form x$_1^n$x$_2$ where n goes from 2 to 10, 8 coordinates of form x$_1^n$x$_2^2$ where n goes from 3 to 10, and similarly, 7, 6, 5, 4, 3, 2, and ultimately 1 coordinate of form x$_1^{10}$x$_2^9$. Thus, there are 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 45 coordinates where x$_1$ has a higher exponent than x$_2$ and likewise, 45 coordinates where x$_2$ has a higher exponent than x$_1$. Summing all these together, we have 45 + 45 + 11 + 11 + 11 which is clearly greater than 100 and not one of the answer choices. Thus, we get choice e.
+
+	
+	\subsection*{Problem 2}
+	\textbf{c or d} is the correct answer. \\
+	By the process of elimination, I know that a and b are not valid because weighted sum of hypothesis from a singleton $H$ will always return that one hypothesis from $H$. Likewise, for constant, real-valued function, we have the same case (averaging over constant hypothesis will return another constant hypothesis). Thus, I am left with choice c or d.
+	
+	\subsection*{Problem 3}
+	\textbf{d} is the correct answer.\\
+	Per slide 12 of lecture 11 on overfitting, it claims the overfit measure to be: E$_{\text{out}}$(g$_1$) - E$_{\text{out}}$(g$_2$) where g$_1$ and g$_2$ are two hypothesis. This contrasts answer choice d.
+	
+	\subsection*{Problem 4}
+	\textbf{d} is the correct answer.\\
+	Per slide 16 of lecture 11, it states that one of the main differences between deterministic noise and stochastic noise is that deterministic noise depends on $H$. This implies that stochastic noise does not depend on the hypothesis set, answer choice d.
+
+	\subsection*{Problem 5}
+	\textbf{a} is the correct answer.\\
+	As shown geometrically in slide 9 of lecture 12, if w$_{\text{lin}}$ lies within the constraint ($\leq$ C), then we simply pick w$_{\text{reg}}$ to be equal to w$_{\text{lin}}$ because that's when there is minimum E$_{in}$.
+		
+	\subsection*{Problem 6}
+	\textbf{b} is the correct answer. \\
+	From slide 10 of lecture 12, we see a parallel between regularization of polynomial models and augmented error. Minimizing E$_{\text{aug}}$(w) which is E$_{\text{in}}$(w) + $\frac{\lambda}{N}$w$^T$w solves the problem of minimizing E$_{\text{in}}$ (w) subject to a constraint (w$^T$w $\leq$ C). Thus, we get answer choice b.
+	
+	\subsection*{Problem 7}
+	\textbf{d} is the correct answer. \\
+	See attached code. I coded up linear regression with regularization, choosing $\lambda$ = 1 and found that the the lowest E$_{\text{in}}$ came from 8 versus all, an error of 0.07433822520916199.
+		
+	
+	\subsection*{Problem 8}
+	\textbf{b} is the correct answer. \\
+	See attached code. Using the same code as problem 7, but applying a transformation and then getting the lowest  E$_{\text{out}}$ resulted in 1 versus all having the lowest error of 0.02192326856003986.
+
+	
+	\subsection*{Problem 9}
+	\textbf{e} is the correct answer. \\
+	See attached code. Calculating the E$_{\text{out}}$  for '5 versus all' with and without transformation resulted in values of 0.07972097658196313 and 0.07922272047832586, respectively. Thus, the transformation did lower E$_{\text{out}}$, but by certainly less than 5$\%$.
+
+	
+	\subsection*{Problem 10}
+	\textbf{a} is the correct answer. \\
+	See attached code. For $\lambda$ = 1, E$_{\text{out}}$ = 0.025943396226415096 and  E$_{\text{in}}$ = 0.005124919923126201. For $\lambda$ = 0.01,  E$_{\text{out}}$ = 0.02830188679245283 and E$_{\text{in}}$ = 0.004484304932735426. By process of elimination or noticing that E$_{\text{out}}$ increases from $\lambda$ = 1 to $\lambda$ = 0.01, we get choice a.
+	
+	\subsection*{Problem 11}
+	\textbf{c} is the correct answer. \\
+	After transformation, we get the points (-3,2), (0, -1), (0, 3), (1, 2), (3,-3), and (3,5). I plotted these points by hand and in mathematica and based on the values generated from their target function, saw that by simple geometric analysis, choice c had the values maximizing the margin. We also notice that the other choices do not separate the data properly, leaving us with choice c. 
+	
+	\subsection*{Problem 12}
+	\textbf{c} is the correct answer. \\
+	See attached code. After running the code, the output was 5, corresponding to answer choice c.
+	
+	\subsection*{Problem 13}
+	\textbf{a} is the correct answer. \\
+	See attached code. After running the code (1000 runs), I found that the number of times E$_{\text{in}}$ = 0 to be 0, which is less than 5$\%$ of the time. 
+	
+	\subsection*{Problem 14}
+	\textbf{e} is the correct answer. \\
+	See attached code. After setting up the regular RBF and the SVM with hard-margins, I compared out of sample performance on 500 randomly generated "out of sample" points, and found that when k = 9, the kernel form beats the regular form 85.6$\%$ of the time, or choice e.
+	
+	\subsection*{Problem 15}
+	\textbf{d} is the correct answer. \\
+	See attached code. Using the same code as problem 14, but changing from k = 9 to k = 12 resulted in 80$\%$ of the time where the kernel form beat the regular form, or choice d.
+	
+	\subsection*{Problem 16}
+	\textbf{d} is the correct answer. \\
+	See attached code. Over 100 runs, I kept track of how many times E$_\text{in}$ and E$_\text{out}$ decreased when I went from k = 9 to k = 12 and found that these events happened 71 and 82 times, respectively. This means that for the most part, both E$_\text{in}$ and E$_\text{out}$ went down, or choice d.
+
+	\subsection*{Problem 17}
+	\textbf{c} is the correct answer. \\
+	See attached code. Over 100 runs, I kept track of how many times E$_\text{in}$ and E$_\text{out}$ decreased when I went from $\gamma$ = 1.5 to $\gamma$ = 2 and found that these events happened 30 and 42 times, respectively. This means that the number of times E$_\text{in}$ and E$_\text{out}$ increased was 70 and 58 times, respectivly. Thus, for the most part, both E$_\text{in}$ and E$_\text{out}$ went up, or choice c.
+	
+	\subsection*{Problem 18}
+	\textbf{a} is the correct answer. \\
+	See attached code. Over 500 runs, I kept track of how many times E$_\text{in}$ for regular RBF with k = 9 and $\gamma$ = 1.5 was 0 and found that such occurred 3.4$\%$ of the runs, which is $\leq$ 10$\%$, or choice a.
+	
+	\subsection*{Problem 19}
+	\textbf{b} is the correct answer. \\
+	We know that the posterior $\propto$ likelihood x prior. We know that from the problem, our prior is uniform, but our likelihood increases linearly over [0,1] because the probability of our data (one example of heart attack) given h = f increases linearly as h = f gets closer to 1, meaning 100$\%$ probability of getting a heart attack.
+	
+	\subsection*{Problem 20}
+	\textbf{c} is the correct answer. \\
+	We are forming an aggregate hypothesis where each of the two hypothesis (g$_1$ and g$_2$) contribute equally. Thus, the E$_{\text{out}}$ of our new hypothesis cannot be worse than the average of the E$_{{\text{out}}}$ values for g$_1$ and g$_2$.	 
+\end{document}
